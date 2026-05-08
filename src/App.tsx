@@ -4,6 +4,13 @@ import './App.css'
 function App() {
   const projects = [
     {
+      title: "Options Academy",
+      description: "A full-stack trading education platform. Features interactive tutorials with quizzes, real-time market explorer, and a paper trading simulator.",
+      icon: <Globe size={32} />,
+      tech: ["Next.js 14", "Express", "Prisma", "Tailwind"],
+      link: "https://github.com/SiddharthUIgupta/options-academy"
+    },
+    {
       title: "LifeSyncUp",
       description: "A high-performance productivity dashboard built with Next.js 14. Features modules for mood tracking, hobby management, and smart scheduling.",
       icon: <Layers size={32} />,
