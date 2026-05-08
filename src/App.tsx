@@ -115,7 +115,7 @@ function App() {
       <section className="hero">
         <div className="hero-content">
           <h1>Senior Frontend Engineer <br /><span className="accent">Specializing in AI & Enterprise UI</span></h1>
-          <p>Over 7 years of experience building scalable, accessible, and intelligent web applications at companies like ServiceNow and Oracle.</p>
+          <p>Over 8 years of experience building scalable, accessible, and intelligent web applications at companies like ServiceNow and Oracle.</p>
           <div className="hero-cta">
             <a href="#projects" className="cta-button">View My Work</a>
             <div className="social-icons">
