@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, ExternalLink, Cpu, Briefcase, GraduationCap, Code2, Layers, Database, Lock, ShoppingCart, Globe, Phone } from 'lucide-react'
+import { Github, Linkedin, Mail, ExternalLink, Cpu, Briefcase, GraduationCap, Code2, Layers, Database, Lock, ShoppingCart, Globe, Phone, Search, CheckCircle2, Layout } from 'lucide-react'
 import './App.css'
 
 function App() {
@@ -7,19 +7,26 @@ function App() {
       title: "LifeSyncUp",
       description: "A high-performance productivity dashboard built with Next.js 14. Features modules for mood tracking, hobby management, and smart scheduling.",
       icon: <Layers size={32} />,
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Lucide"],
+      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
       link: "https://github.com/SiddharthUIgupta/LifeSyncUp"
     },
     {
       title: "AI LinkedIn Agent",
       description: "An intelligent job discovery assistant that automates the search and data extraction process from LinkedIn using Python and LLMs.",
       icon: <Cpu size={32} />,
-      tech: ["Python", "OpenAI API", "BeautifulSoup", "Automation"],
+      tech: ["Python", "OpenAI API", "BeautifulSoup"],
       link: "https://github.com/SiddharthUIgupta/ai-linkedin-agent"
     },
     {
+      title: "Fun-Finder",
+      description: "A personalized activity discovery platform. Helps users find local events and DIY projects based on interests.",
+      icon: <Search size={32} />,
+      tech: ["Next.js", "Radix UI", "Tailwind CSS"],
+      link: "https://github.com/SiddharthUIgupta/fun-finder"
+    },
+    {
       title: "Product List UI",
-      description: "High-performance e-commerce product interface with state-managed cart functionality.",
+      description: "High-performance e-commerce product interface with state-managed cart functionality and responsive layout.",
       icon: <ShoppingCart size={32} />,
       tech: ["React", "JavaScript", "CSS3"],
       link: "https://github.com/SiddharthUIgupta/product-list-ui"
@@ -28,8 +35,22 @@ function App() {
       title: "Job App Tracker",
       description: "A specialized React application designed to manage the end-to-end job application lifecycle with real-time status tracking.",
       icon: <Briefcase size={32} />,
-      tech: ["React", "Vite", "Tailwind CSS", "JSON-Server"],
+      tech: ["React", "Vite", "Tailwind CSS"],
       link: "https://github.com/SiddharthUIgupta/job-app-tracker"
+    },
+    {
+      title: "Tic-Tac-Toe React",
+      description: "Classic game implementation with advanced state management to track game history and player turns.",
+      icon: <Layout size={32} />,
+      tech: ["React", "JavaScript", "CSS3"],
+      link: "https://github.com/SiddharthUIgupta/tic-tac-toe-react"
+    },
+    {
+      title: "Todo-App",
+      description: "Clean and minimal task management application focusing on core productivity and state persistence.",
+      icon: <CheckCircle2 size={32} />,
+      tech: ["React", "JavaScript", "Local Storage"],
+      link: "https://github.com/SiddharthUIgupta/todo-app"
     },
     {
       title: "Password Gen React",
@@ -37,13 +58,6 @@ function App() {
       icon: <Lock size={32} />,
       tech: ["React", "Tailwind CSS", "JavaScript"],
       link: "https://github.com/SiddharthUIgupta/password-gen-react"
-    },
-    {
-      title: "Admin Dashboard",
-      description: "Enterprise-grade dashboard template featuring real-time data visualization and complex state management.",
-      icon: <Database size={32} />,
-      tech: ["React", "Redux", "D3.js"],
-      link: "https://github.com/SiddharthUIgupta/admin-dashboard"
     }
   ]
 
@@ -82,8 +96,7 @@ function App() {
         "Developed a responsive, mobile-first single-page application (SPA) using Angular 5, Angular Material, Angular UI, Material cards, and Flex Layout.",
         "Worked on a client facing SPA called Private Wealth Management app with multiple widgets.",
         "Involved in SDLC, Requirements gathering, Analysis, Design, Development and Testing using AGILE methodology.",
-        "Used Observables for asynchronously exchanging small amount of JSON data with the server behind the scenes.",
-        "Skills used: HTML5, CSS3, Sass, Agile, Scrum, Highcharts, Chartjs, Flex-Layout, TypeScript 2, Angular 5, Angular Material UI, Jasmine, JSON, AJAX, Restful API, TFS, GIT, Github, Jenkins."
+        "Used Observables for asynchronously exchanging small amount of JSON data with the server behind the scenes."
       ]
     },
     {
@@ -120,7 +133,7 @@ function App() {
             <a href="#projects" className="cta-button">View My Work</a>
             <div className="social-icons">
               <a href="https://github.com/SiddharthUIgupta"><Github /></a>
-              <a href="https://www.linkedin.com/in/sidgupta3391/"><Linkedin /></a>
+              <a href="https://www.linkedin.com/in/siddharth-gupta-216b25121/"><Linkedin /></a>
               <a href="mailto:sidgupta3391@gmail.com"><Mail /></a>
             </div>
           </div>
@@ -138,7 +151,7 @@ function App() {
               <div className="project-tech">
                 {p.tech.map(t => <span key={t}>{t}</span>)}
               </div>
-              <a href={p.link} className="project-link">
+              <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link">
                 View Repository <ExternalLink size={16} />
               </a>
             </div>
