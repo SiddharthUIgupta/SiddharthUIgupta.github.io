@@ -140,7 +140,7 @@ function App() {
             <a href="#projects" className="cta-button">View My Work</a>
             <div className="social-icons">
               <a href="https://github.com/SiddharthUIgupta"><Github /></a>
-              <a href="https://www.linkedin.com/in/siddharth-gupta-216b25121/"><Linkedin /></a>
+              <a href="https://www.linkedin.com/in/sidgupta3391/"><Linkedin /></a>
               <a href="mailto:sidgupta3391@gmail.com"><Mail /></a>
             </div>
           </div>
