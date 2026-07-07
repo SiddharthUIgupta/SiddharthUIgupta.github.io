@@ -31,8 +31,8 @@ function PortfolioApp() {
         // Update global scroll progress
         dispatch(setScrollProgress(progress))
 
-        // Split progress into 8 sections (0 to 7)
-        const section = Math.min(Math.floor(progress * 8), 7)
+        // Split progress into 3 sections (0, 1, 2)
+        const section = Math.min(Math.floor(progress * 3), 2)
         dispatch(setActiveSection(section))
       },
     })
@@ -59,11 +59,6 @@ function PortfolioApp() {
         <div id="section-0" className="scroll-section" />
         <div id="section-1" className="scroll-section" />
         <div id="section-2" className="scroll-section" />
-        <div id="section-3" className="scroll-section" />
-        <div id="section-4" className="scroll-section" />
-        <div id="section-5" className="scroll-section" />
-        <div id="section-6" className="scroll-section" />
-        <div id="section-7" className="scroll-section" />
       </div>
     </div>
   )
