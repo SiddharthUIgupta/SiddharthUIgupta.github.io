@@ -133,7 +133,7 @@ void main() {
   vec3 finalColor = mix(baseColor * 0.3, baseColor, fresnel) + vec3(spec * 0.4);
   
   // Fade out ring at higher scroll values as it morphs into the particle cloud
-  float opacity = 1.0 - smoothstep(0.3, 0.65, uScrollProgress);
+  float opacity = 1.0 - smoothstep(0.12, 0.28, uScrollProgress);
   
   gl_FragColor = vec4(finalColor, opacity);
 }
