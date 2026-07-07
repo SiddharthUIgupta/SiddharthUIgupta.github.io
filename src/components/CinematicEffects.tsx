@@ -2,6 +2,7 @@ import { EffectComposer, Bloom, ChromaticAberration, DepthOfField } from '@react
 import { BlendFunction } from 'postprocessing'
 import { useSelector } from 'react-redux'
 import { RootState } from '../store'
+import * as THREE from 'three'
 
 export default function CinematicEffects() {
   const scrollProgress = useSelector((state: RootState) => state.portfolio.scrollProgress)
@@ -25,7 +26,9 @@ export default function CinematicEffects() {
       />
       <ChromaticAberration
         blendFunction={BlendFunction.NORMAL}
-        offset={[chromaticOffset, chromaticOffset]}
+        offset={new THREE.Vector2(chromaticOffset, chromaticOffset)}
+        radialModulation={false}
+        modulationOffset={0}
       />
     </EffectComposer>
   )
