@@ -87,47 +87,15 @@ void main() {
   // Generate continuous swirling noise
   float noise = snoise(pos * 0.4 + vec3(0.0, uTime * 0.15, 0.0));
 
-  // Dynamic physics variables based on scroll stages
-  float dispersion = 0.0;
-  float swirlSpeed = 1.0;
-  float flatness = 1.0;
+  // Circular spiral physics as user scrolls
+  float angle = uScrollProgress * 5.0 + aRandom.x * 6.28;
+  float initialRadius = length(position.xz);
+  float radius = initialRadius * (1.0 + uScrollProgress * 3.5);
 
-  if (uScrollProgress < 0.15) {
-    // Section 0-1: Hidden / tight cluster
-    dispersion = 0.2;
-    swirlSpeed = 0.2;
-  } else if (uScrollProgress >= 0.15 && uScrollProgress < 0.35) {
-    // Section 1-2: Spiral out and swirling nebula starts forming
-    float t = (uScrollProgress - 0.15) / 0.2;
-    dispersion = mix(0.2, 1.5, t);
-    swirlSpeed = mix(0.2, 2.0, t);
-  } else if (uScrollProgress >= 0.35 && uScrollProgress < 0.6) {
-    // Section 2-4: Explodes outward to wide space starfield
-    float t = (uScrollProgress - 0.35) / 0.25;
-    dispersion = mix(1.5, 4.0, t);
-    swirlSpeed = mix(2.0, 0.5, t);
-  } else if (uScrollProgress >= 0.6 && uScrollProgress < 0.8) {
-    // Section 5-6: Flattens into a spinning disc (Experience/Journey)
-    float t = (uScrollProgress - 0.6) / 0.2;
-    dispersion = mix(4.0, 2.2, t);
-    swirlSpeed = mix(0.5, 3.0, t);
-    flatness = mix(1.0, 0.15, t);
-  } else {
-    // Section 7: Connect section, expands vertically and slows down
-    float t = (uScrollProgress - 0.8) / 0.2;
-    dispersion = mix(2.2, 3.5, t);
-    swirlSpeed = mix(3.0, 0.2, t);
-    flatness = mix(0.15, 1.8, t);
-  }
-
-  // Circular math for points
-  float angle = uTime * 0.1 * swirlSpeed + aRandom.x * 6.28 + uScrollProgress * 5.0;
-  float radius = length(position.xz) * dispersion;
-
-  pos.x = cos(angle + noise * 0.4) * radius;
-  pos.z = sin(angle + noise * 0.4) * radius;
-  pos.y = position.y * flatness + sin(uTime * 0.2 + aRandom.y * 20.0) * 0.5 * (dispersion * 0.3 + 0.1);
-  pos += aRandom * noise * 0.2 * dispersion;
+  pos.x = cos(angle + noise * 0.5) * radius;
+  pos.z = sin(angle + noise * 0.5) * radius;
+  pos.y += sin(uTime * 0.2 + aRandom.y * 20.0) * 0.8 * (uScrollProgress + 0.1);
+  pos += aRandom * noise * uScrollProgress * 1.5;
 
   vec4 modelViewPosition = modelViewMatrix * vec4(pos, 1.0);
   gl_Position = projectionMatrix * modelViewPosition;
@@ -140,8 +108,8 @@ void main() {
   vec3 color2 = vec3(0.85, 0.0, 0.65);  // Vibrant Pink/Magenta
   vColor = mix(color1, color2, clamp((pos.y + 2.0) * 0.25, 0.0, 1.0) + uScrollProgress * 0.3);
 
-  // Fade-in when starting scroll, stay visible
-  float alpha = smoothstep(0.12, 0.25, uScrollProgress);
+  // Fade-in when starting scroll, stay visible towards the end
+  float alpha = smoothstep(0.15, 0.4, uScrollProgress);
   vAlpha = alpha * 0.75;
 }
 `
